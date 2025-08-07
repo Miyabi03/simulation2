@@ -1,0 +1,243 @@
+// 料金プランの全組み合わせデータ
+const feeData = {
+    "スタンダード-0-6": { monthly: 140900, total: 845400 },
+    "スタンダード-10000-6": { monthly: 139100, total: 844600 },
+    "スタンダード-30000-6": { monthly: 135600, total: 843600 },
+    "スタンダード-50000-6": { monthly: 132000, total: 842000 },
+    "スタンダード-100000-6": { monthly: 123200, total: 839200 },
+    "スタンダード-150000-6": { monthly: 114400, total: 836400 },
+    "スタンダード-200000-6": { monthly: 105600, total: 833600 },
+    "スタンダード-250000-6": { monthly: 96800, total: 830800 },
+    "スタンダード-300000-6": { monthly: 87900, total: 827400 },
+    "スタンダード-350000-6": { monthly: 79100, total: 824600 },
+    "スタンダード-400000-6": { monthly: 70300, total: 821800 },
+    "スタンダード-450000-6": { monthly: 61500, total: 819000 },
+    "スタンダード-500000-6": { monthly: 52600, total: 815600 },
+    "スタンダード-0-12": { monthly: 74400, total: 892800 },
+    "スタンダード-10000-12": { monthly: 73400, total: 890800 },
+    "スタンダード-30000-12": { monthly: 71600, total: 889200 },
+    "スタンダード-50000-12": { monthly: 69700, total: 886400 },
+    "スタンダード-100000-12": { monthly: 65100, total: 881200 },
+    "スタンダード-150000-12": { monthly: 60400, total: 874800 },
+    "スタンダード-200000-12": { monthly: 55700, total: 868400 },
+    "スタンダード-250000-12": { monthly: 51100, total: 863200 },
+    "スタンダード-300000-12": { monthly: 46400, total: 856800 },
+    "スタンダード-350000-12": { monthly: 41800, total: 851600 },
+    "スタンダード-400000-12": { monthly: 37100, total: 845200 },
+    "スタンダード-450000-12": { monthly: 32500, total: 840000 },
+    "スタンダード-500000-12": { monthly: 27800, total: 833600 },
+    "スタンダード-0-24": { monthly: 41100, total: 986400 },
+    "スタンダード-10000-24": { monthly: 40600, total: 984400 },
+    "スタンダード-30000-24": { monthly: 39600, total: 980400 },
+    "スタンダード-50000-24": { monthly: 38500, total: 974000 },
+    "スタンダード-100000-24": { monthly: 36000, total: 964000 },
+    "スタンダード-150000-24": { monthly: 33400, total: 951600 },
+    "スタンダード-200000-24": { monthly: 30800, total: 939200 },
+    "スタンダード-250000-24": { monthly: 28300, total: 929200 },
+    "スタンダード-300000-24": { monthly: 25700, total: 916800 },
+    "スタンダード-350000-24": { monthly: 23100, total: 904400 },
+    "スタンダード-400000-24": { monthly: 20500, total: 892000 },
+    "スタンダード-450000-24": { monthly: 18000, total: 882000 },
+    "スタンダード-500000-24": { monthly: 15400, total: 869600 },
+    "スタンダード-0-36": { monthly: 30000, total: 1080000 },
+    "スタンダード-10000-36": { monthly: 29700, total: 1079200 },
+    "スタンダード-30000-36": { monthly: 28900, total: 1070400 },
+    "スタンダード-50000-36": { monthly: 28200, total: 1065200 },
+    "スタンダード-100000-36": { monthly: 26300, total: 1046800 },
+    "スタンダード-150000-36": { monthly: 24400, total: 1028400 },
+    "スタンダード-200000-36": { monthly: 22500, total: 1010000 },
+    "スタンダード-250000-36": { monthly: 20600, total: 991600 },
+    "スタンダード-300000-36": { monthly: 18800, total: 976800 },
+    "スタンダード-350000-36": { monthly: 16900, total: 958400 },
+    "スタンダード-400000-36": { monthly: 15000, total: 940000 },
+    "スタンダード-450000-36": { monthly: 13100, total: 921600 },
+    "スタンダード-500000-36": { monthly: 11200, total: 903200 },
+    "スタンダード-0-48": { monthly: 24500, total: 1176000 },
+    "スタンダード-10000-48": { monthly: 24200, total: 1171600 },
+    "スタンダード-30000-48": { monthly: 23600, total: 1162800 },
+    "スタンダード-50000-48": { monthly: 23000, total: 1154000 },
+    "スタンダード-100000-48": { monthly: 21400, total: 1127200 },
+    "スタンダード-150000-48": { monthly: 19900, total: 1105200 },
+    "スタンダード-200000-48": { monthly: 18400, total: 1083200 },
+    "スタンダード-250000-48": { monthly: 16800, total: 1056400 },
+    "スタンダード-300000-48": { monthly: 15300, total: 1034400 },
+    "スタンダード-350000-48": { monthly: 13800, total: 1012400 },
+    "スタンダード-400000-48": { monthly: 12200, total: 985600 },
+    "スタンダード-450000-48": { monthly: 10700, total: 963600 },
+    "スタンダード-500000-48": { monthly: 9200, total: 941600 },
+    "スタンダード-0-60": { monthly: 21200, total: 1272000 },
+    "スタンダード-10000-60": { monthly: 20900, total: 1264000 },
+    "スタンダード-30000-60": { monthly: 20400, total: 1254000 },
+    "スタンダード-50000-60": { monthly: 19800, total: 1238000 },
+    "スタンダード-100000-60": { monthly: 18500, total: 1210000 },
+    "スタンダード-150000-60": { monthly: 17200, total: 1182000 },
+    "スタンダード-200000-60": { monthly: 15900, total: 1154000 },
+    "スタンダード-250000-60": { monthly: 14600, total: 1126000 },
+    "スタンダード-300000-60": { monthly: 13200, total: 1092000 },
+    "スタンダード-350000-60": { monthly: 11900, total: 1064000 },
+    "スタンダード-400000-60": { monthly: 10600, total: 1036000 },
+    "スタンダード-450000-60": { monthly: 9300, total: 1008000 },
+    "スタンダード-500000-60": { monthly: 7900, total: 974000 },
+    "プライム-0-6": { monthly: 349500, total: 2097000 },
+    "プライム-10000-6": { monthly: 347700, total: 2096200 },
+    "プライム-30000-6": { monthly: 344200, total: 2095200 },
+    "プライム-50000-6": { monthly: 340600, total: 2093600 },
+    "プライム-100000-6": { monthly: 331800, total: 2090800 },
+    "プライム-150000-6": { monthly: 323000, total: 2088000 },
+    "プライム-200000-6": { monthly: 314200, total: 2085200 },
+    "プライム-250000-6": { monthly: 305300, total: 2081800 },
+    "プライム-300000-6": { monthly: 296500, total: 2079000 },
+    "プライム-350000-6": { monthly: 287700, total: 2076200 },
+    "プライム-400000-6": { monthly: 278900, total: 2073400 },
+    "プライム-450000-6": { monthly: 270000, total: 2070000 },
+    "プライム-500000-6": { monthly: 261200, total: 2067200 },
+    "プライム-600000-6": { monthly: 243600, total: 2061600 },
+    "プライム-700000-6": { monthly: 225900, total: 2055400 },
+    "プライム-800000-6": { monthly: 208300, total: 2049800 },
+    "プライム-900000-6": { monthly: 190600, total: 2043600 },
+    "プライム-1000000-6": { monthly: 173000, total: 2038000 },
+    "プライム-0-12": { monthly: 184500, total: 2214000 },
+    "プライム-10000-12": { monthly: 183500, total: 2212000 },
+    "プライム-30000-12": { monthly: 181700, total: 2210400 },
+    "プライム-50000-12": { monthly: 179800, total: 2207600 },
+    "プライム-100000-12": { monthly: 175100, total: 2201200 },
+    "プライム-150000-12": { monthly: 170500, total: 2196000 },
+    "プライム-200000-12": { monthly: 165800, total: 2189600 },
+    "プライム-250000-12": { monthly: 161200, total: 2184400 },
+    "プライム-300000-12": { monthly: 156500, total: 2178000 },
+    "プライム-350000-12": { monthly: 151900, total: 2172800 },
+    "プライム-400000-12": { monthly: 147200, total: 2166400 },
+    "プライム-450000-12": { monthly: 142500, total: 2160000 },
+    "プライム-500000-12": { monthly: 137900, total: 2154800 },
+    "プライム-600000-12": { monthly: 128600, total: 2143200 },
+    "プライム-700000-12": { monthly: 119300, total: 2131600 },
+    "プライム-800000-12": { monthly: 109900, total: 2118800 },
+    "プライム-900000-12": { monthly: 100600, total: 2107200 },
+    "プライム-1000000-12": { monthly: 91300, total: 2095600 },
+    "プライム-0-24": { monthly: 102000, total: 2448000 },
+    "プライム-10000-24": { monthly: 101400, total: 2443600 },
+    "プライム-30000-24": { monthly: 100400, total: 2439600 },
+    "プライム-50000-24": { monthly: 99400, total: 2435600 },
+    "プライム-100000-24": { monthly: 96800, total: 2423200 },
+    "プライム-150000-24": { monthly: 94200, total: 2410800 },
+    "プライム-200000-24": { monthly: 91700, total: 2400800 },
+    "プライム-250000-24": { monthly: 89100, total: 2388400 },
+    "プライム-300000-24": { monthly: 86500, total: 2376000 },
+    "プライム-350000-24": { monthly: 83900, total: 2363600 },
+    "プライム-400000-24": { monthly: 81400, total: 2353600 },
+    "プライム-450000-24": { monthly: 78800, total: 2341200 },
+    "プライム-500000-24": { monthly: 76200, total: 2328800 },
+    "プライム-600000-24": { monthly: 71100, total: 2306400 },
+    "プライム-700000-24": { monthly: 65900, total: 2281600 },
+    "プライム-800000-24": { monthly: 60800, total: 2259200 },
+    "プライム-900000-24": { monthly: 55600, total: 2234400 },
+    "プライム-1000000-24": { monthly: 50500, total: 2212000 },
+    "プライム-0-36": { monthly: 74500, total: 2682000 },
+    "プライム-10000-36": { monthly: 74100, total: 2677600 },
+    "プライム-30000-36": { monthly: 73300, total: 2668800 },
+    "プライム-50000-36": { monthly: 72600, total: 2663600 },
+    "プライム-100000-36": { monthly: 70700, total: 2645200 },
+    "プライム-150000-36": { monthly: 68800, total: 2626800 },
+    "プライム-200000-36": { monthly: 66900, total: 2608400 },
+    "プライム-250000-36": { monthly: 65100, total: 2593600 },
+    "プライム-300000-36": { monthly: 63200, total: 2575200 },
+    "プライム-350000-36": { monthly: 61300, total: 2556800 },
+    "プライム-400000-36": { monthly: 59400, total: 2538400 },
+    "プライム-450000-36": { monthly: 57500, total: 2520000 },
+    "プライム-500000-36": { monthly: 55700, total: 2505200 },
+    "プライム-600000-36": { monthly: 51900, total: 2468400 },
+    "プライム-700000-36": { monthly: 48100, total: 2431600 },
+    "プライム-800000-36": { monthly: 44400, total: 2398400 },
+    "プライム-900000-36": { monthly: 40600, total: 2361600 },
+    "プライム-1000000-36": { monthly: 36900, total: 2328400 },
+    "プライム-0-48": { monthly: 60700, total: 2913600 },
+    "プライム-10000-48": { monthly: 60400, total: 2909200 },
+    "プライム-30000-48": { monthly: 59800, total: 2900400 },
+    "プライム-50000-48": { monthly: 59200, total: 2891600 },
+    "プライム-100000-48": { monthly: 57600, total: 2864800 },
+    "プライム-150000-48": { monthly: 56100, total: 2842800 },
+    "プライム-200000-48": { monthly: 54600, total: 2820800 },
+    "プライム-250000-48": { monthly: 53000, total: 2794000 },
+    "プライム-300000-48": { monthly: 51500, total: 2772000 },
+    "プライム-350000-48": { monthly: 50000, total: 2750000 },
+    "プライム-400000-48": { monthly: 48500, total: 2728000 },
+    "プライム-450000-48": { monthly: 46900, total: 2701200 },
+    "プライム-500000-48": { monthly: 45400, total: 2679200 },
+    "プライム-600000-48": { monthly: 42300, total: 2630400 },
+    "プライム-700000-48": { monthly: 39300, total: 2586400 },
+    "プライム-800000-48": { monthly: 36200, total: 2537600 },
+    "プライム-900000-48": { monthly: 33100, total: 2488800 },
+    "プライム-1000000-48": { monthly: 30100, total: 2444800 },
+    "プライム-0-60": { monthly: 52500, total: 3150000 },
+    "プライム-10000-60": { monthly: 52200, total: 3142000 },
+    "プライム-30000-60": { monthly: 51700, total: 3132000 },
+    "プライム-50000-60": { monthly: 51100, total: 3116000 },
+    "プライム-100000-60": { monthly: 49800, total: 3088000 },
+    "プライム-150000-60": { monthly: 48500, total: 3060000 },
+    "プライム-200000-60": { monthly: 47200, total: 3032000 },
+    "プライム-250000-60": { monthly: 45800, total: 2998000 },
+    "プライム-300000-60": { monthly: 44500, total: 2970000 },
+    "プライム-350000-60": { monthly: 43200, total: 2942000 },
+    "プライム-400000-60": { monthly: 41900, total: 2914000 },
+    "プライム-450000-60": { monthly: 40500, total: 2880000 },
+    "プライム-500000-60": { monthly: 39200, total: 2852000 },
+    "プライム-600000-60": { monthly: 36600, total: 2796000 },
+    "プライム-700000-60": { monthly: 33900, total: 2734000 },
+    "プライム-800000-60": { monthly: 31300, total: 2678000 },
+    "プライム-900000-60": { monthly: 28600, total: 2616000 },
+    "プライム-1000000-60": { monthly: 26000, total: 2560000 }
+};
+
+// HTML要素を取得
+const planSelect = document.getElementById('plan');
+const downPaymentSelect = document.getElementById('down-payment');
+const installmentsSelect = document.getElementById('installments');
+const calculateBtn = document.getElementById('calculate-btn');
+const resultDiv = document.getElementById('result');
+
+// 「計算する」ボタンが押されたときの処理
+calculateBtn.addEventListener('click', () => {
+    // 選択された値を取得
+    const plan = planSelect.value;
+    const downPayment = downPaymentSelect.value;
+    const installments = installmentsSelect.value;
+
+    // すべての項目が選択されているかチェック
+    if (!plan || !downPayment || !installments) {
+        resultDiv.innerHTML = '<p>すべての項目を選択してください。</p>';
+        return;
+    }
+
+    // 料金データを検索するためのキーを作成
+    const key = `${plan}-${downPayment}-${installments}`;
+
+    // 該当する料金データを取得
+    const resultData = feeData[key];
+
+    if (resultData) {
+        // 初回お支払い日の計算ロジック
+        const today = new Date();
+        const dayOfMonth = today.getDate();
+        let firstPaymentDate;
+
+        if (dayOfMonth <= 20) {
+            // 申込日が20日までの場合 → 翌月13日
+            firstPaymentDate = new Date(today.getFullYear(), today.getMonth() + 1, 13);
+        } else {
+            // 申込日が21日以降の場合 → 翌々月13日
+            firstPaymentDate = new Date(today.getFullYear(), today.getMonth() + 2, 13);
+        }
+
+        const formattedDate = `${firstPaymentDate.getFullYear()}年${firstPaymentDate.getMonth() + 1}月${firstPaymentDate.getDate()}日`;
+
+        // 結果を表示
+        resultDiv.innerHTML = `
+            <p><strong>月々のお支払い額:</strong> ${resultData.monthly.toLocaleString()}円</p>
+            <p><strong>お支払い総額:</strong> ${resultData.total.toLocaleString()}円</p>
+            <p><strong>初回お支払い予定日:</strong> ${formattedDate}</p>
+        `;
+    } else {
+        // 該当データがない場合
+        resultDiv.innerHTML = '<p>申し訳ありません。ご指定の組み合わせのプランはございません。</p>';
+    }
+});
