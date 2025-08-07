@@ -146,7 +146,7 @@ const feeData = {
     "プライム-450000-36": { monthly: 57500, total: 2520000 },
     "プライム-500000-36": { monthly: 55700, total: 2505200 },
     "プライム-600000-36": { monthly: 51900, total: 2468400 },
-    "プライム-700000-36": { monthly: 48100, total: 2431600 },
+    "プライм-700000-36": { monthly: 48100, total: 2431600 },
     "プライム-800000-36": { monthly: 44400, total: 2398400 },
     "プライム-900000-36": { monthly: 40600, total: 2361600 },
     "プライム-1000000-36": { monthly: 36900, total: 2328400 },
@@ -235,7 +235,7 @@ const feeData = {
     "プライム（割引）-250000-36": { monthly: 35100, total: 1513600 },
     "プライム（割引）-300000-36": { monthly: 33200, total: 1495200 },
     "プライム（割引）-350000-36": { monthly: 31300, total: 1476800 },
-    "プライム（割引）-400000-36": { monthly: 29400, total: 1458400 },
+    "プライм（割引）-400000-36": { monthly: 29400, total: 1458400 },
     "プライム（割引）-450000-36": { monthly: 27600, total: 1443600 },
     "プライム（割引）-500000-36": { monthly: 25700, total: 1425200 },
     "プライム（割引）-0-48": { monthly: 36300, total: 1742400 },
@@ -264,7 +264,6 @@ const feeData = {
     "プライム（割引）-400000-60": { monthly: 20700, total: 1642000 },
     "プライム（割引）-450000-60": { monthly: 19400, total: 1614000 },
     "プライム（割引）-500000-60": { monthly: 18100, total: 1586000 }
-}
 };
 
 // HTML要素を取得
@@ -276,103 +275,47 @@ const resultDiv = document.getElementById('result');
 
 // 「計算する」ボタンが押されたときの処理
 calculateBtn.addEventListener('click', () => {
-    // 選択された値を取得
-    const plan = planSelect.value;
-    const downPayment = downPaymentSelect.value;
-    const installments = installmentsSelect.value;
+    // 選択された値を取得
+    const plan = planSelect.value;
+    const downPayment = downPaymentSelect.value;
+    const installments = installmentsSelect.value;
 
-    // すべての項目が選択されているかチェック
-    if (!plan || !downPayment || !installments) {
-        resultDiv.innerHTML = '<p>すべての項目を選択してください。</p>';
-        return;
-    }
+    // すべての項目が選択されているかチェック
+    if (!plan || !downPayment || !installments) {
+        resultDiv.innerHTML = '<p>すべての項目を選択してください。</p>';
+        return;
+    }
 
-    // 料金データを検索するためのキーを作成
-    const key = `${plan}-${downPayment}-${installments}`;
+    // 料金データを検索するためのキーを作成
+    const key = `${plan}-${downPayment}-${installments}`;
 
-    // 該当する料金データを取得
-    const resultData = feeData[key];
+    // 該当する料金データを取得
+    const resultData = feeData[key];
 
-    if (resultData) {
-        // 初回お支払い日の計算ロジック
-        const today = new Date();
-        const dayOfMonth = today.getDate();
-        let firstPaymentDate;
+    if (resultData) {
+        // 初回お支払い日の計算ロジック
+        const today = new Date();
+        const dayOfMonth = today.getDate();
+        let firstPaymentDate;
 
-        if (dayOfMonth <= 20) {
-            // 申込日が20日までの場合 → 翌月13日
-            firstPaymentDate = new Date(today.getFullYear(), today.getMonth() + 1, 13);
-        } else {
-            // 申込日が21日以降の場合 → 翌々月13日
-            firstPaymentDate = new Date(today.getFullYear(), today.getMonth() + 2, 13);
-        }
+        if (dayOfMonth <= 20) {
+            // 申込日が20日までの場合 → 翌月13日
+            firstPaymentDate = new Date(today.getFullYear(), today.getMonth() + 1, 13);
+        } else {
+            // 申込日が21日以降の場合 → 翌々月13日
+            firstPaymentDate = new Date(today.getFullYear(), today.getMonth() + 2, 13);
+        }
 
-        const formattedDate = `${firstPaymentDate.getFullYear()}年${firstPaymentDate.getMonth() + 1}月${firstPaymentDate.getDate()}日`;
+        const formattedDate = `${firstPaymentDate.getFullYear()}年${firstPaymentDate.getMonth() + 1}月${firstPaymentDate.getDate()}日`;
 
-        // 結果を表示
-        resultDiv.innerHTML = `
-            <p><strong>月々のお支払い額:</strong> ${resultData.monthly.toLocaleString()}円</p>
-            <p><strong>お支払い総額:</strong> ${resultData.total.toLocaleString()}円</p>
-            <p><strong>初回お支払い予定日:</strong> ${formattedDate}</p>
-        `;
-    } else {
-        // 該当データがない場合
-        resultDiv.innerHTML = '<p>申し訳ありません。ご指定の組み合わせのプランはございません。</p>';
-    }
+        // 結果を表示
+        resultDiv.innerHTML = `
+            <p><strong>月々のお支払い額:</strong> ${resultData.monthly.toLocaleString()}円</p>
+            <p><strong>お支払い総額:</strong> ${resultData.total.toLocaleString()}円</p>
+            <p><strong>初回お支払い予定日:</strong> ${formattedDate}</p>
+        `;
+    } else {
+        // 該当データがない場合
+        resultDiv.innerHTML = '<p>申し訳ありません。ご指定の組み合わせのプランはございません。</p>';
+    }
 });
-
-このスクリプトに以下も追加した形で修正してください
-またプランに「プライム（割引）」も追加してください
-
-"スタンダード-0-6": { monthly: 140900, total: 845400 },
-"スタンダード-10000-6": { monthly: 139100, total: 844600 },
-"スタンダード-30000-6": { monthly: 135600, total: 843600 },
-"スタンダード-50000-6": { monthly: 132000, total: 842000 },
-"スタンダード-100000-6": { monthly: 123200, total: 839200 },
-"スタンダード-150000-6": { monthly: 114400, total: 836400 },
-"スタンダード-200000-6": { monthly: 105600, total: 833600 },
-"スタンダード-250000-6": { monthly: 96800, total: 830800 },
-"スタンダード-300000-6": { monthly: 87900, total: 827400 },
-"スタンダード-350000-6": { monthly: 79100, total: 824600 },
-"スタンダード-400000-6": { monthly: 70300, total: 821800 },
-"スタンダード-450000-6": { monthly: 61500, total: 819000 },
-"スタンダード-500000-6": { monthly: 52600, total: 815600 },
-"スタンダード-0-12": { monthly: 74400, total: 892800 },
-"スタンダード-10000-12": { monthly: 73400, total: 890800 },
-"スタンダード-30000-12": { monthly: 71600, total: 889200 },
-"スタンダード-50000-12": { monthly: 69700, total: 886400 },
-"スタンダード-100000-12": { monthly: 65100, total: 881200 },
-"スタンダード-150000-12": { monthly: 60400, total: 874800 },
-"スタンダード-200000-12": { monthly: 55700, total: 868400 },
-"スタンダード-250000-12": { monthly: 51100, total: 863200 },
-"スタンダード-300000-12": { monthly: 46400, total: 856800 },
-"スタンダード-350000-12": { monthly: 41800, total: 851600 },
-"スタンダード-400000-12": { monthly: 37100, total: 845200 },
-"スタンダード-450000-12": { monthly: 32500, total: 840000 },
-"スタンダード-500000-12": { monthly: 27800, total: 833600 },
-"スタンダード-0-24": { monthly: 41100, total: 986400 },
-"スタンダード-10000-24": { monthly: 40600, total: 984400 },
-"スタンダード-30000-24": { monthly: 39600, total: 980400 },
-"スタンダード-50000-24": { monthly: 38500, total: 974000 },
-"スタンダード-100000-24": { monthly: 36000, total: 964000 },
-"スタンダード-150000-24": { monthly: 33400, total: 951600 },
-"スタンダード-200000-24": { monthly: 30800, total: 939200 },
-"スタンダード-250000-24": { monthly: 28300, total: 929200 },
-"スタンダード-300000-24": { monthly: 25700, total: 916800 },
-"スタンダード-350000-24": { monthly: 23100, total: 904400 },
-"スタンダード-400000-24": { monthly: 20500, total: 892000 },
-"スタンダード-450000-24": { monthly: 18000, total: 882000 },
-"スタンダード-500000-24": { monthly: 15400, total: 869600 },
-"スタンダード-0-36": { monthly: 30000, total: 1080000 },
-"スタンダード-10000-36": { monthly: 29700, total: 1079200 },
-"スタンダード-30000-36": { monthly: 28900, total: 1070400 },
-"スタンダード-50000-36": { monthly: 28200, total: 1065200 },
-"スタンダード-100000-36": { monthly: 26300, total: 1046800 },
-"スタンダード-150000-36": { monthly: 24400, total: 1028400 },
-"スタンダード-200000-36": { monthly: 22500, total: 1010000 },
-"スタンダード-250000-36": { monthly: 20600, total: 991600 },
-"スタンダード-300000-36": { monthly: 18800, total: 976800 },
-"スタンダード-350000-36": { monthly: 16900, total: 958400 },
-"スタンダード-400000-36": { monthly: 15000, total: 940000 },
-"プライム（割引）-500000-60": { monthly: 18100, total: 1586000 }
-}
